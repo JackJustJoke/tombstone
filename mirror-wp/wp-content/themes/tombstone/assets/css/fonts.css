@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&family=Inter:opsz,wght@14..32,100..900&family=Russo+One&family=Source+Code+Pro:wght@200..900&display=swap');
+
+@font-face { font-family: "OSC-Light";
+  src: url("../fonts/open-sans-condensed/OpenSansCondensed-Light.woff2") format("woff2");
+  font-weight: 300; font-style: normal; font-display: swap }
+@font-face { font-family: "OSC-LightItalic";
+  src: url("../fonts/open-sans-condensed/OpenSansCondensed-LightItalic.woff2") format("woff2");
+  font-weight: 300; font-style: normal; font-display: swap }
+@font-face { font-family: "OSC-Bold";
+  src: url("../fonts/open-sans-condensed/OpenSansCondensed-Bold.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap }
+
+@font-face { font-family: "Gogh-ExtraBold";
+  src: url("../fonts/gogh/Gogh-ExtraBold.woff2") format("woff2");
+  font-weight: 800; font-style: normal; font-display: swap }
+
+.ff-inter-100    { font-family: "Inter", sans-serif; font-weight: 100; font-style: normal; font-optical-sizing: auto; }
+.ff-inter-200    { font-family: "Inter", sans-serif; font-weight: 200; font-style: normal; font-optical-sizing: auto; }
+.ff-inter-300    { font-family: "Inter", sans-serif; font-weight: 300; font-style: normal; font-optical-sizing: auto; }
+.ff-inter-400    { font-family: "Inter", sans-serif; font-weight: 400; font-style: normal; font-optical-sizing: auto; }
+.ff-inter-500    { font-family: "Inter", sans-serif; font-weight: 500; font-style: normal; font-optical-sizing: auto; }
+.ff-inter-600    { font-family: "Inter", sans-serif; font-weight: 600; font-style: normal; font-optical-sizing: auto; }
+.ff-inter-700    { font-family: "Inter", sans-serif; font-weight: 700; font-style: normal; font-optical-sizing: auto; }
+.ff-inter-800    { font-family: "Inter", sans-serif; font-weight: 800; font-style: normal; font-optical-sizing: auto; }
+.ff-inter-900    { font-family: "Inter", sans-serif; font-weight: 900; font-style: normal; font-optical-sizing: auto; }
+.ff-osc-l        { font-family: "OSC-Light"      }
+.ff-osc-l-i      { font-family: "OSC-LightItalic"}
+.ff-osc-bo       { font-family: "OSC-Bold"       }
+.ff-gogh-ex-bo   { font-family: "Gogh-ExtraBold" }
+.ff-forum        { font-family: "Forum"          }
+
+* { 
+  /* font-family: "CN-T-SemiBold"; */
+    color: var(--color-base-black);
+}
+
+h1, .h1 { font-family: "Inter", sans-serif; font-weight: 600; }
+h2, .h2 { font-family: "Forum";             font-size: clamp(42px, calc(39.966px + 0.636vw), 48px); text-transform: uppercase; font-weight: 100 }
+h3, .h3 { font-family: "Inter", sans-serif; font-size: clamp(32px, calc(28.61px + 1.059vw), 42px); text-transform: uppercase }
+h4, .h4 { font-family: "Inter", sans-serif; font-size: 36px; text-transform: uppercase }
+h5, .h5 { font-family: "Inter", sans-serif; font-size: 24px; text-transform: uppercase }
+h6, .h6 { font-family: "Inter", sans-serif; font-size: 18px; text-transform: uppercase }
+
+h1, .h1, h2, .h2, h3, .h3, 
+h4, .h4, h5, .h5, h6, .h6 { word-break: break-word }
+
+p  { font-family: "OSC-Light"; font-size: 24px }
+
+.grid-even>:nth-child(even)>p { grid-row: 1 } /* Реверсирую каждую вторую строку */
+
+a>div { color: black }
+
+
+.tc-b {color: var(--black-1)}
+.tc-w {color: var(--white)}
+.tc-p {color: var(--pink)}
+
+.fs-14  {font-size: 14px}
+.fs-16  {font-size: 16px}
+.fs-18  {font-size: 18px}
+.fs-20  {font-size: 20px}
+.fs-22  {font-size: 22px}
+.fs-24  {font-size: 24px}
+.fs-26  {font-size: 26px}
+.fs-28  {font-size: 28px}
+.fs-36  {font-size: 36px}
+.fs-42  {font-size: 42px}
+.fs-44  {font-size: 44px}
+.fs-48  {font-size: 48px}
+.fs-64  {font-size: 64px}
+.fs-68  {font-size: 68px}
+.fs-145 {font-size: 145px}
+.fs-210 {font-size: clamp(112px, 4vw, 210px);}
+.fs-260 {font-size: 260px}
+
+.fw-100 {font-weight: 100}
+.fw-200 {font-weight: 200}
+.fw-300 {font-weight: 300}
+.fw-400 {font-weight: 400}
+.fw-500 {font-weight: 500}
+.fw-600 {font-weight: 600}
+.fw-700 {font-weight: 700}
+.fw-900 {font-weight: 900}
+
+.lh-70  {line-height: 70%  }
+.lh-80  {line-height: 80%  }
+.lh-90  {line-height: 90%  }
+.lh-100 {line-height: 100% }
+.lh-115 {line-height: 115% }
+.lh-130 {line-height: 130% }
+
+.ta-l { text-align: left }
+.ta-r { text-align: right }
+.ta-c { text-align: center }
+
+.line-through { text-decoration: line-through }
+.monospace    { font-family: monospace        }
+.uppercase    { text-transform: uppercase     }
+.capitalize   { text-transform: capitalize    }

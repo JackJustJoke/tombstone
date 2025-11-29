@@ -1,0 +1,38 @@
+:root {
+    /* Colors */
+    --black-1: #303030;
+    --black-2: #1A1A1A;
+    --white: #F2F2F2;
+    --gray-1: #BCBCBC;
+    --gray-2: #5D5D5D;
+    --gray-3: #444444;
+    --orange: #FF6200;
+}
+
+body {
+    /* background-color: var(--black-1) */
+}
+
+.txt-white   {color: var(--white)}
+.txt-black-1 {color: var(--black-1)}
+.txt-black-2 {color: var(--black-2)}
+.txt-pink    {color: var(--pink) }
+
+
+.bg-gray-1 {background-color: var(--gray-1)}
+.bg-gray-2 {background-color: var(--gray-2)}
+.bg-gray-3 {background-color: var(--gray-3)}
+
+.bg-white  { background-color: white        }
+.bg-black  { background-color: var(--black-2) }
+.bg-orange { background-color: var(--orange)  }
+
+.opacity-1 {opacity: .1 }
+.opacity-2 {opacity: .2 }
+.opacity-3 {opacity: .3 }
+.opacity-4 {opacity: .4 }
+.opacity-5 {opacity: .5 }
+.opacity-6 {opacity: .6 }
+.opacity-7 {opacity: .7 }
+.opacity-8 {opacity: .8 }
+.opacity-9 {opacity: .9 }
