@@ -5,26 +5,25 @@
  */
 
 get_header(); ?>
-
-<div class="container">
+<style>
+    p {padding: 8px 0!important}
+    h1, p {line-height:120%}
+    .work-price-large {min-width: max-content}
+    img {
+        object-fit: cover;
+        width: 100%;
+    }
+</style>
+<div class="container pt-40">
     <?php while (have_posts()) : the_post(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class('work-single'); ?>>
             
             <!-- Заголовок -->
             <header class="work-header">
-                <h1 class="work-title"><?php the_title(); ?></h1>
                 
-                <!-- Цена в шапке -->
-                <?php $price = get_post_meta(get_the_ID(), '_tombstone_work_price', true); ?>
-                <?php if ($price) : ?>
-                    <div class="work-price-large">
-                        <span class="price-label">Стоимость работы:</span>
-                        <span class="price-value"><?php echo esc_html($price); ?></span>
-                    </div>
-                <?php endif; ?>
             </header>
 
-            <div class="work-content-wrapper">
+            <div class="work-content-wrapper grid gtc-2 gg-40">
                 <!-- Основное изображение -->
                 <?php if (has_post_thumbnail()) : ?>
                     <div class="work-featured-image">
@@ -34,21 +33,27 @@ get_header(); ?>
 
                 <!-- Описание работы -->
                 <div class="work-content">
+
+                    <h1 class="work-title"><?php the_title(); ?></h1>
+                    <div class="grid gtc-2 g-ai-c">
+                        <?php $price = get_post_meta(get_the_ID(), '_tombstone_work_price', true); ?>
+                        <?php if ($price) : ?>
+                            <div class="work-price-large ff-inter-800 fs-28">
+                                <span class="price-label">Стоимость:</span>
+                                <span class="price-value"><?php echo esc_html($price); ?></span>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="work-meta">
+                            <?php $post_date = get_the_date('d.m.Y'); ?>
+                            <div class="work-date ta-r"><?php echo $post_date; ?></div>
+                        </div>
+
+                    </div>
+
                     <?php the_content(); ?>
                 </div>
 
-                <!-- Дополнительная информация -->
-                <div class="work-meta">
-                    <?php
-                    // Дата публикации
-                    $post_date = get_the_date('d.m.Y');
-                    ?>
-                    <div class="work-date">
-                        <strong>Дата публикации:</strong> <?php echo $post_date; ?>
-                    </div>
-                    
-                    <!-- Можно добавить другие мета-данные -->
-                </div>
 
                 <!-- Галерея (если нужно добавить дополнительные изображения) -->
                 <?php

@@ -73,7 +73,7 @@ elseif (!is_front_page()) {
                 <img src="<? echo get_stylesheet_directory_uri() . '/assets/images/icon-tg.png' ?>" alt="">
             </div>
             <div>
-                <a href="" class="btn-alt ff-inter-700">Заказать звонок</a>
+                <a href="" class="popmake-279 btn-alt ff-inter-700">Заказать звонок</a>
             </div>
         </div>
     </div>

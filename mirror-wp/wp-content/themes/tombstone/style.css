@@ -13,8 +13,6 @@ Text Domain: tombstone
 body {
     background-color: var(--bg);
     margin: 0 auto;
-    /* padding: 0 12px; */
-    overflow-x: hidden;
 }
 main, footer {
     max-width: 1288px;
@@ -24,11 +22,10 @@ main, footer {
 
 .site-header {
     position: fixed;
-    z-index: 999;
+    z-index: 100;
     top: 0;
     width: 100%;
     background: #ffffff85;
-    border-bottom: 1px solid #ddd;
     padding: 10px 0;
 }
 
@@ -80,14 +77,17 @@ main, footer {
         width: 100%;
     }
 }
+.bird {overflow-x: hidden;}
 .bird img {
     position: absolute;
+    overflow-x: hidden;
     transform: translate(-70px, -120px);
 }
 @media screen and (max-width:480px) {
-    .bird img {
-        transform: translate(30px, -20px);
-    }
+    .bird img { 
+        transform: translate(120px, 50px);
+        width: 210px;
+     }
 }
 
 
@@ -230,12 +230,12 @@ h2.cercle.cercle-orange::before { background-color: var(--orange) }
 .btn-bg-orange { background-color: var(--orange); }
 
 .button-with-arrow::before {
-  content: '🡥';
+  content: url("data:image/svg+xml;charset=utf-8,<svg xmlns='www.w3.org' width='16' height='16' viewBox='0 0 16 16'><path fill='%23ff0000' d='M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0z'/></svg>");
   position: absolute;
   top: 0px;
   right: 20px;
-  width: 0;
-  height: 0;
+  width: 24px;
+  height: 24px;
 }
 
 .btn {
@@ -265,12 +265,15 @@ h2.cercle.cercle-orange::before { background-color: var(--orange) }
     content: '';
     position: absolute;
     top: 0;
-    left: 49.2%;
+    left: 49.4%;
     transform: translateX(-50%);
     width: 100vw;
     height: 100%;
     background: var(--black-2);
     z-index: -1;
+}
+@media screen and (max-width:480px) {
+    footer .full-width-bg::before { width: 0 }
 }
 
 .overflow-h { overflow-x: hidden }
@@ -405,7 +408,7 @@ footer>div:first-child { border-bottom: solid 1px var(--orange) }
 #memorial-calc select[disabled] { background-color: #dddddd }
 
 
-#memorial-calc label>select::after  {
+#memorial-calc label > select::after  {
     content: '\25BC'; /* Символ стрелки вниз */
     color: #007bff;
     font-size: 1.2em;
@@ -415,20 +418,18 @@ footer>div:first-child { border-bottom: solid 1px var(--orange) }
 #memorial-calc fieldset label { font-size: clamp(14px, 4vw, 24px); }
 #memorial-calc fieldset legend { font-size: 24px; margin-left: 12px }
 
-#memorial-calc {
-    display: grid;
-}
+#memorial-calc { display: grid }
 
 .product-meta { text-align: center }
 
 .reset_variations { display: none }
 
-.price, #calc-result {
+.price, #calcResult {
     font-family: "Gogh-ExtraBold";
     line-height: 115%;
 }
 .price { font-size: clamp(18px, 4vw, 24px)!important }
-#calc-result { font-size: clamp(32px, 4vw, 42px) }
+#calcResult { font-size: clamp(32px, 4vw, 42px) }
 
 .woocommerce-Price-amount.amount {
     position: relative;
@@ -471,22 +472,6 @@ tbody tr:nth-child(2) td.value::after {
     background-position: center;
     background-size: 100%;
 }
-
-/* select:after {
-    content: "\25BC"; 
-    padding: 0 8px;
-    font-size: 12px;
-    position: absolute;
-    right: 8px;
-    top: 4px;
-    z-index: 1;
-    text-align: center;
-    width: 10%;
-    height: 100%;
-    pointer-events: none;
-    box-sizing: border-box;
-} */
-
 
 /* Woocommerce Archive */
 .products {
@@ -632,6 +617,9 @@ body form .forminator-row :is(input, textarea):focus {
 .forminator-checkbox__wrapper { align-items: center!important }
 
 
+/* forms for popup */
+form#forminator-module-284 .forminator-row:nth-child(4) { display: none }
+.forminator-button span { color: white }
 
 /*  Filter  */
 .wrap-input {
@@ -753,3 +741,96 @@ body form .forminator-row :is(input, textarea):focus {
     .mobile-menu.open { right: 0 }
 }
 
+
+.grid-even>:nth-child(even)>p { grid-row: 1 } /* Реверсирую каждую вторую строку */
+
+@media screen and (max-width:480px) {
+    .grid-even>:nth-child(even)>p { grid-row: auto }
+}
+
+
+
+
+/* Glide menu S */
+
+#substrate { 
+    position: fixed;
+    display: block; 
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: .5s;
+
+    z-index: 101;
+}
+
+.sidenav {
+  position: fixed; 
+  height: 100%;
+  width: 250px; 
+  z-index: 102; 
+  top: 0;
+  left: -250px;
+  background-color: #111;
+  overflow-x: hidden; 
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.sidenav a:hover { color: #f1f1f1 }
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  z-index: 2;
+}
+
+.openbtn:hover { background-color: #444 }
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+/* Glide menu E */
+
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+
+.hidden   {overflow: hidden}
+.hidden-x {overflow-x: hidden}
+.hidden-y {overflow-y: hidden}
+
+
+.work-thumbnail img {
+    object-fit: cover;
+    width: 100%;
+}

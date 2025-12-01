@@ -20,7 +20,7 @@ global $product;
             <div class="product-description"><?php woocommerce_template_single_excerpt(); ?></div> -->
             
         </div>
-        <a href="#" class="btn-1 button-with-arrow ff-inter-700">Заказать памятник</a>
+        <batton href="#" id="orderTombstone" class="btn-1 button-with-arrow ff-inter-700 popmake-285">Заказать памятник</batton>
     </div>
 </section>
 

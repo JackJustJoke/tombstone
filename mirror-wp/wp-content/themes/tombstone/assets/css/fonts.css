@@ -37,7 +37,7 @@
 h1, .h1 { font-family: "Inter", sans-serif; font-weight: 600; }
 h2, .h2 { font-family: "Forum";             font-size: clamp(42px, calc(39.966px + 0.636vw), 48px); text-transform: uppercase; font-weight: 100 }
 h3, .h3 { font-family: "Inter", sans-serif; font-size: clamp(32px, calc(28.61px + 1.059vw), 42px); text-transform: uppercase }
-h4, .h4 { font-family: "Inter", sans-serif; font-size: 36px; text-transform: uppercase }
+h4, .h4 { font-family: "Inter", sans-serif; font-size: clamp(28px, 4vw, 36px); text-transform: uppercase }
 h5, .h5 { font-family: "Inter", sans-serif; font-size: 24px; text-transform: uppercase }
 h6, .h6 { font-family: "Inter", sans-serif; font-size: 18px; text-transform: uppercase }
 
@@ -46,7 +46,6 @@ h4, .h4, h5, .h5, h6, .h6 { word-break: break-word }
 
 p  { font-family: "OSC-Light"; font-size: 24px }
 
-.grid-even>:nth-child(even)>p { grid-row: 1 } /* Реверсирую каждую вторую строку */
 
 a>div { color: black }
 
@@ -64,13 +63,13 @@ a>div { color: black }
 .fs-26  {font-size: 26px}
 .fs-28  {font-size: 28px}
 .fs-36  {font-size: 36px}
-.fs-42  {font-size: 42px}
-.fs-44  {font-size: 44px}
+.fs-42  {font-size: clamp(35px, 2vh, 42px)}
+.fs-44  {font-size: clamp(24px, 2vh, 44px)}
 .fs-48  {font-size: 48px}
 .fs-64  {font-size: 64px}
 .fs-68  {font-size: 68px}
 .fs-145 {font-size: 145px}
-.fs-210 {font-size: clamp(112px, 4vw, 210px);}
+.fs-210 {font-size: clamp(112px, 4vw, 210px)}
 .fs-260 {font-size: 260px}
 
 .fw-100 {font-weight: 100}

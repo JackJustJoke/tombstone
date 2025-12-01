@@ -1,5 +1,5 @@
 
-<section class="mt-60 ptb-70">
+<section class="mt-60 ptb-60">
     <h2 class="cercle">Порядок работы</h2>
     <div class="grid-even">
         <div class="grid gtc-4 gg-40">

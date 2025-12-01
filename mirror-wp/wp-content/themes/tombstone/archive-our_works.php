@@ -8,7 +8,7 @@ get_header(); ?>
 
 <div class="container">
     <header class="page-header">
-        <h1 class="page-title">Наши работы</h1>
+        <h1 class="page-title h2 mt-200">Наши работы</h1>
         <?php 
         $description = get_the_archive_description();
         if ($description) : ?>
@@ -17,7 +17,7 @@ get_header(); ?>
     </header>
 
     <?php if (have_posts()) : ?>
-        <div class="works-grid">
+        <div class="works-grid mt-30 grid gtc-3">
             <?php while (have_posts()) : the_post(); ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class('work-item'); ?>>
                     
@@ -31,7 +31,7 @@ get_header(); ?>
                     <?php endif; ?>
                     
                     <!-- Название работы -->
-                    <h2 class="work-title">
+                    <h2 class="work-title fs-28">
                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                     </h2>
                     
@@ -49,7 +49,7 @@ get_header(); ?>
                     <!-- Цена работы -->
                     <?php $price = get_post_meta(get_the_ID(), '_tombstone_work_price', true); ?>
                     <?php if ($price) : ?>
-                        <div class="work-price">
+                        <div class="work-price ff-inter-700 fs-42">
                             <span class="price-label">Стоимость:</span>
                             <span class="price-value"><?php echo esc_html($price); ?></span>
                         </div>

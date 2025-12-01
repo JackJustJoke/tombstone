@@ -8,16 +8,16 @@
 
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/assets/css/swiper-bundle.min.css' ?>"/>
 
-
+    
     
 </head>
 <body <?php body_class(); ?>>
-<header class="site-header">
-    
-     <div class="container">
-        <div class="logo">
-            <a href="<?php echo home_url(); ?>">
-                <?php 
+    <header class="site-header glass-effect">
+        
+        <div class="container">
+            <div class="logo">
+                <a href="<?php echo home_url(); ?>">
+                    <?php 
                 if ( has_custom_logo() ) {
                     the_custom_logo();
                 } else {
@@ -35,9 +35,33 @@
             ]);
             ?>
         </nav>
-
+        <span class="openbtn fs-36" onclick="openNav()">&#9776;</span>
     </div>
 </header>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <?php
+    wp_nav_menu([
+        'theme_location' => 'header_menu',
+        // 'container'      => false,
+        // 'menu_class'     => 'menu',
+    ]);
+    ?>
+</div>
+<div id="substrate" class="glass-effect"></div>
+
+<script>
+    function openNav() {
+  mySidenav.style.left = "0";
+  substrate.style.width = "100%";
+}
+function closeNav() {
+  mySidenav.style.left = "-250px";
+  substrate.style.width = "0";
+}
+substrate.addEventListener( 'click', (event) => closeNav() )
+</script>
 
 <div class="cloud">
   <img src="<? echo get_stylesheet_directory_uri() . '/assets/images/bg-top.png' ?>" alt="">

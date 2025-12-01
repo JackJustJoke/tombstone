@@ -201,10 +201,9 @@
             <div class="swiper-wrapper">
 
               <?php
-                // Получаем товары WooCommerce
                 $args = array(
                     'post_type'      => 'product',
-                    'posts_per_page' => 8, // сколько товаров вывести
+                    'posts_per_page' => 8,
                     'post_status'    => 'publish',
                 );
 
@@ -382,7 +381,7 @@
     </div>            
   </section>
 
-  <section class="ptb-60 bg-black full-width-bg">
+  <section id="about-us" class="ptb-60 bg-black full-width-bg">
     <h2 class="cercle cercle-orange txt-white">О нас</h2>
     <h3 class="txt-white pt-60">Изготавливаем и устанавливаем памятники из высококачественного чёрного гранита в Тюмени</h3>
     <div class="grid-even">
@@ -704,9 +703,9 @@
                 <div class="article">
                   <?php if (has_post_thumbnail()) : ?>
                           <div class="work-thumbnail-home">
-                              <a href="<?php the_permalink(); ?>">
-                                  <?php the_post_thumbnail('medium', ['class' => 'work-image-home']); ?>
-                              </a>
+                              <!-- <a href="<?php the_permalink(); ?>"> -->
+                                  <?php the_post_thumbnail('hight', ['class' => 'work-image-home']); ?>
+                              <!-- </a> -->
                           </div>
                       <?php endif; ?>
                   <div class="info p-20">
@@ -719,7 +718,7 @@
                     </div>
                     <div class="aritcle__price mt-30 ff-gogh-ex-bo fs-28 mt-40"><?php echo esc_html($price); ?>&nbsp;₽</div>
                   </div>
-                  <a class="btn ff-inter-700" href="<?php the_permalink(); ?>">Подробнее</a>
+                  <!-- <a class="btn ff-inter-700" href="<?php the_permalink(); ?>">Подробнее</a> -->
                 </div>
               </article>
             <?php
@@ -847,109 +846,49 @@
     spaceBetween: 40,
     freeMode: true,
     breakpoints: {
-      // when window width is >= 320px
-      320: {
-        slidesPerView: 2,
-        spaceBetween: 5
-      },
-      // when window width is >= 480px
-      480: {
-        slidesPerView: 3,
-        spaceBetween: 10
-      },
-      // when window width is >= 640px
-      640: {
-        slidesPerView: 5,
-        spaceBetween: 40
-      }
+      320: {slidesPerView: 2,spaceBetween: 5},
+      480: {slidesPerView: 3,spaceBetween: 10},
+      640: {slidesPerView: 5,spaceBetween: 40}
     }
   });
 
   var swiperProducts2 = new Swiper(".swiper-products-2", {
-    slidesPerView: 4,
-    grid: {
-      rows: 2,
-    },
-    spaceBetween: 40,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
+    slidesPerView: 4, spaceBetween: 40,
+    grid: { rows: 2 },
+    pagination: {el: ".swiper-pagination", clickable: true},
     breakpoints: {
-      // when window width is >= 320px
-      320: {
-        slidesPerView: 2,
-        spaceBetween: 5
-      },
-      // when window width is >= 480px
-      480: {
-        slidesPerView: 3,
-        spaceBetween: 10
-      },
-      // when window width is >= 640px
-      640: {
-        slidesPerView: 5,
-        spaceBetween: 40
-      }
+      320: {slidesPerView: 2,spaceBetween: 5},
+      480: {slidesPerView: 3,spaceBetween: 10},
+      640: {slidesPerView: 5,spaceBetween: 40}
     }
   });
 
   var swiperArticles = new Swiper(".swiper-articles", {
-    slidesPerView: 2,
-    spaceBetween: 40,
-    freeMode: true,
+    slidesPerView: 2, spaceBetween: 40, freeMode: true,
     breakpoints: {
-      // when window width is >= 320px
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 5
-      },
-      // when window width is >= 480px
-      480: {
-        slidesPerView: 2,
-        spaceBetween: 10
-      },
-      // when window width is >= 640px
-      640: {
-        slidesPerView: 2,
-        spaceBetween: 40
-      }
+      320: {slidesPerView: 1,spaceBetween: 5},
+      480: {slidesPerView: 2,spaceBetween: 10},
+      640: {slidesPerView: 2,spaceBetween: 40}
     }
   });
 
   var swiperArticles = new Swiper(".swiper-reviews", {
-    slidesPerView: 2,
-    spaceBetween: 40,
-    freeMode: true,
+    slidesPerView: 2, spaceBetween: 40, freeMode: true,
     breakpoints: {
-      // when window width is >= 320px
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 5
-      },
-      // when window width is >= 480px
-      480: {
-        slidesPerView: 2,
-        spaceBetween: 10
-      },
-      // when window width is >= 640px
-      640: {
-        slidesPerView: 2,
-        spaceBetween: 40
-      }
+      320: {slidesPerView: 1,spaceBetween: 5},
+      480: {slidesPerView: 2,spaceBetween: 10},
+      640: {slidesPerView: 2,spaceBetween: 40}
     }
   });
 
 
   document.addEventListener("DOMContentLoaded", function () {
-    // console.log(document.querySelectorAll('.tabs'))
     document.querySelectorAll('.tabs').forEach((el) => {
       let tabLinks = el.querySelectorAll(".tab-link"); 
       let tabPanes = el.querySelectorAll(".tab-pane");
 
       tabLinks.forEach((btn, index) => {
         btn.addEventListener("click", () => {
-          // Сброс активных классов только внутри этого блока
           tabLinks.forEach((b) => b.classList.remove("active"));
           tabPanes.forEach((pane) => pane.classList.remove("active"));
 

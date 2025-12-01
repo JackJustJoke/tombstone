@@ -8,13 +8,13 @@ function memorial_calc_shortcode() {
     ?>
     <div id="memorial-calc" class="grid gtc-2 gg-12">
       <!-- <h3>Калькулятор памятника</h3> -->
-      <div class="wrap-stella">
-        <label>Стелла:</label>
-        <select id="stella">
+      <div class="wrap-stela">
+        <label>Стела:</label>
+        <select id="stela">
           <option value="">Выберите</option>
           <?php foreach ($data['stelly'] as $name => $price): ?>
             <option value="<?= esc_attr($name) ?>" data-price="<?= esc_attr($price) ?>">
-              <?= esc_html($name) ?> — <?= number_format($price, 0, ',', ' ') ?> ₽
+              <?= esc_html($name) ?>
             </option>
           <?php endforeach; ?>
         </select>
@@ -33,7 +33,7 @@ function memorial_calc_shortcode() {
           <option value="0">Без плитки</option>
           <?php foreach ($data['plitki'] as $name => $price): ?>
             <option value="<?= esc_attr($price) ?>">
-              <?= esc_html($name) ?> — <?= number_format($price, 0, ',', ' ') ?> ₽
+              <?= esc_html($name) ?>
             </option>
           <?php endforeach; ?>
         </select>
@@ -41,7 +41,7 @@ function memorial_calc_shortcode() {
 
       <div class="wrap-tile-area ">
         <label>Площадь плитки (м²):</label>
-        <input type="number" id="tile-area" value="0" min="0" max="9999" step="0.1" disabled>
+        <input type="number" id="tileArea" value="0" min="0" max="9999" step="0.1" disabled>
       </div>
 
       <div class="wrap-uslugi col-1-2">
@@ -50,13 +50,13 @@ function memorial_calc_shortcode() {
           <?php foreach ($data['uslugi'] as $name => $price): ?>
             <label>
               <input type="checkbox" class="usluga" value="<?= esc_attr($price) ?>">
-              <?= esc_html($name) ?> — <?= number_format($price, 0, ',', ' ') ?> ₽
+              <?= esc_html($name) ?>
             </label><br>
           <?php endforeach; ?>
         </fieldset>
       </div>
 
-      <div id="calc-result" class="col-1-2" style="margin-top:15px; font-weight:bold;">Итого: 0 ₽</div>
+      <div id="calcResult" class="col-1-2" style="margin-top:15px; font-weight:bold;">Итого: 0 ₽</div>
       <div id="price-product" class="price-product d-none"><?php global $product; echo $product->get_price(); ?></div>
     </div>
 
@@ -65,73 +65,60 @@ function memorial_calc_shortcode() {
       const tumbyAll = <?= json_encode($data['tumby'], JSON_UNESCAPED_UNICODE) ?>;
 
       document.addEventListener('DOMContentLoaded', () => {
-        const stellaSelect = document.getElementById('stella');
+        const stelaSelect = document.getElementById('stela');
         const tumbaSelect = document.getElementById('tumba');
         const plitkaSelect = document.getElementById('plitka');
-        const tileAreaInput = document.getElementById('tile-area');
-        const resultEl = document.getElementById('calc-result');
+        const tileAreaInput = document.getElementById('tileArea');
+        const resultEl = document.getElementById('calcResult');
 
-        // Функция пересчёта
         const calculate = () => {
-          const stellaVal = stellaSelect.value;
+          const stelaVal = stelaSelect.value;
           const tumbaPrice = parseFloat(tumbaSelect.value) || 0;
           const tilePrice = parseFloat(plitkaSelect.value) || 0;
           const area = parseFloat(tileAreaInput.value) || 0;
 
-          const stellaPrice = stellaVal ? parseFloat(stellaSelect.selectedOptions[0].dataset.price) || 0 : 0;
+          const stelaPrice = stelaVal ? parseFloat(stelaSelect.selectedOptions[0].dataset.price) || 0 : 0;
           
           let sum = <?php echo $product->get_price() ?>;
 
-          if (stellaPrice > 0) { sum += stellaPrice * 2 }
-          console.log(sum)
+          if (stelaPrice > 0) { sum += stelaPrice * 2 }
           if (tumbaPrice > 0) { sum += tumbaPrice * 2 }
-          console.log(sum)
           if (tilePrice > 0 && area > 0) { sum += tilePrice * area * 2 }
-          console.log(sum)
-
           // sum += 6000 * 2; // Цветник 
           // sum += 4000 * 2; // Основание 
+          
+          // Обновление текста и цены услуги "Установка стелы"
+          const updateInstallationPrice = () => {
+            const stelaVal = stelaSelect.value;
+            if (!stelaVal) return;
 
-          // Установка: зависит от высоты стеллы
-          if (stellaVal) {
-            const height = parseInt(stellaVal.split('×')[0]) || 0;
-            document.querySelectorAll('.wrap-uslugi label').forEach( el => {
-              let v = { '8k'  : '<input type="checkbox" class="usluga" value="8000"> Установка стелы — 8 000 ₽', 
-                        '10k' : '<input type="checkbox" class="usluga" value="10000"> Установка стелы — 10 000 ₽' }
-              
-              if (el.textContent.includes('Установка стелы')) {
-                isChecked = el.querySelector('input').checked;
-                if (height <= 1000) { 
-                  el.innerHTML = v['8k'];  el.querySelector('input').value = 8000;} 
-                else { 
-                  el.innerHTML = v['10k']; el.querySelector('input').value = 10000; 
-                }
-                el.querySelector('input').checked = isChecked;
+            const height = parseInt(stelaVal.split('×')[0]) || 0;
+            const newPrice = height <= 1000 ? 8000 : 10000;
+
+            document.querySelectorAll('.usluga').forEach(input => {
+              const label = input.closest('label');
+              if (!label) return;
+
+              // ищем текстовый узел после input
+              const textNode = [...label.childNodes].find(n => n.nodeType === 3); if (!textNode) return;
+
+              // обновляем только услугу "Установка стелы"
+              if (textNode.textContent.trim().startsWith('Установка стелы')) {
+                input.value = newPrice;
+                textNode.textContent = ` Установка стелы — ${newPrice.toLocaleString('ru-RU')} ₽`;
               }
-              console.log(el.querySelector('input'));
-              
             });
-          }
+          };
 
-          // При клике на услуги пересчитывать
-          document.querySelectorAll('.usluga').forEach( el => {
-            el.addEventListener('click', () => {
-              calculate();
-            })
-          })
+          document.querySelectorAll('.usluga:checked').forEach(el => { sum += parseFloat(el.value) || 0 });
 
-          // Доп. услуги
-          document.querySelectorAll('.usluga:checked').forEach(el => {
-            sum += parseFloat(el.value) || 0;
-            console.log(sum);
-          });
-
+          console.log(sum)
           resultEl.textContent = `Итого: ${sum.toLocaleString('ru-RU')} ₽`;
         };
 
         // Обновление тумбы при выборе стеллы
-        stellaSelect.addEventListener('change', () => {
-          const val = stellaSelect.value;
+        stelaSelect.addEventListener('change', () => {
+          const val = stelaSelect.value;
           tumbaSelect.innerHTML = '<option value="">Выберите тумбу</option>';
           tumbaSelect.disabled = true;
 
@@ -141,11 +128,12 @@ function memorial_calc_shortcode() {
               if (tumbyAll[size]) {
                 const opt = document.createElement('option');
                 opt.value = tumbyAll[size];
-                opt.textContent = `${size} — ${parseFloat(tumbyAll[size]).toLocaleString('ru-RU')} ₽`;
+                opt.textContent = `${size}`;
                 tumbaSelect.appendChild(opt);
               }
             });
           }
+          
           calculate();
         });
 
@@ -157,16 +145,39 @@ function memorial_calc_shortcode() {
           calculate();
         });
 
-        // Слушаем все изменения
+        // Слушаем изменения
         tumbaSelect.addEventListener('change', calculate);
         tileAreaInput.addEventListener('input', calculate);
         document.querySelectorAll('.usluga').forEach(cb => {
           cb.addEventListener('change', calculate);
         });
+        
+        calculate(); // Первый расчёт (если что-то выбрано по умолчанию)
 
-        // Первый расчёт (если что-то выбрано по умолчанию)
-        calculate();
+        // Сборка выбранных услуг
+        let combineOrder = () => { 
+          let getSelectedText = (e) => e.options[e.selectedIndex].text;
+          let txtOrderArr = [];
+          if (stela.value != '') { txtOrderArr.push(`Стела: ${getSelectedText(stela)}`)};
+          if (tumba.value != '') { txtOrderArr.push(`Тумба: ${getSelectedText(tumba)}`)};
+          if (plitka.value != 0) { txtOrderArr.push(`Плитка: ${getSelectedText(plitka)} (${tileArea.value}м²)`)};
+
+          let countChecked = 0;
+          document.querySelectorAll('.usluga').forEach(el => {if (countChecked > 0) txtOrderArr.push('\nДоп. услуги:') });
+          document.querySelectorAll('.usluga').forEach(el => {
+            if (el.checked) { txtOrderArr.push(`- ${el.closest('label').innerText}`) };
+          });
+          txtOrderArr.push(calcResult.innerText);
+          txtOrderArr.join('\n');
+          document.querySelector('#forminator-module-284 #textarea-1 textarea').value = txtOrderArr.join('\n');
+        }
+  
+        orderTombstone.addEventListener('click', combineOrder);
+
       });
+
+      
+
     </script>
     <?php
     return ob_get_clean();
