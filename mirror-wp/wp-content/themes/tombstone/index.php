@@ -9,13 +9,13 @@
     </div>
   </section>
 
-  <section class="ptb-60">
+  <section id="shares" class="ptb-60">
     
     <h2 class="cercle bg-gray">Акции</h2>
     
       <div class="swiper mt-70">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
+          <!-- <div class="swiper-slide">
             <div class="grid gtc-2 carousel">
               <div class="col-1-1 p-60">
                 <h3 class="lh-115">Памятник для участников <span>СВО</span></h3>
@@ -23,7 +23,7 @@
               </div>
               <div class="col-2-1" style="background-image: url('<?php echo get_stylesheet_directory_uri() . '/assets/images/carousel-img-1.jpg' ?>');"></div>
             </div>
-          </div>
+          </div> -->
           <div class="swiper-slide">
             <div class="grid gtc-2 carousel">
               <div class="col-1-1 p-60">
@@ -101,7 +101,7 @@
       <div class="tabs-nav ff-inter-700 fs-24">
         <div class="tab-link active">Участникам СВО</div>
         <div class="tab-link">Со скидкой</div>
-        <div class="tab-link">Эконом</div>
+        <div class="tab-link">Премиум</div>
       </div>
 
       <div class="tabs-content ">
@@ -110,11 +110,17 @@
             <div class="swiper-wrapper">
 
               <?php
-                // Получаем товары WooCommerce
                 $args = array(
                     'post_type'      => 'product',
-                    'posts_per_page' => 8, // сколько товаров вывести
+                    'posts_per_page' => 8,
                     'post_status'    => 'publish',
+                    'tax_query'      => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field'    => 'slug',
+                            'terms'    => 'svo',
+                        ),
+                    ),
                 );
 
                 $products = new WP_Query($args);
@@ -205,6 +211,7 @@
                     'post_type'      => 'product',
                     'posts_per_page' => 8,
                     'post_status'    => 'publish',
+                    'post__in'       => array_merge( array( 0 ), wc_get_product_ids_on_sale() )
                 );
 
                 $products = new WP_Query($args);
@@ -291,11 +298,17 @@
             <div class="swiper-wrapper">
 
               <?php
-                // Получаем товары WooCommerce
                 $args = array(
                     'post_type'      => 'product',
-                    'posts_per_page' => 8, // сколько товаров вывести
+                    'posts_per_page' => 8,
                     'post_status'    => 'publish',
+                    'tax_query'      => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field'    => 'slug',
+                            'terms'    => 'premium',
+                        ),
+                    ),
                 );
 
                 $products = new WP_Query($args);
@@ -421,6 +434,13 @@
                     'post_type'      => 'product',
                     'posts_per_page' => 8, 
                     'post_status'    => 'publish',
+                    'tax_query'      => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field'    => 'slug',
+                            'terms'    => 'svo',
+                        ),
+                    ),
                 );
 
                 $products = new WP_Query($args);
@@ -496,11 +516,11 @@
             <div class="swiper-wrapper">
 
               <?php
-                // Получаем товары WooCommerce
                 $args = array(
                     'post_type'      => 'product',
-                    'posts_per_page' => 8, // сколько товаров вывести
+                    'posts_per_page' => 8,
                     'post_status'    => 'publish',
+                    'post__in'       => array_merge( array( 0 ), wc_get_product_ids_on_sale() )
                 );
 
                 $products = new WP_Query($args);
@@ -592,6 +612,13 @@
                     'post_type'      => 'product',
                     'posts_per_page' => 8, // сколько товаров вывести
                     'post_status'    => 'publish',
+                    'tax_query'      => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field'    => 'slug',
+                            'terms'    => 'premium',
+                        ),
+                    ),
                 );
 
                 $products = new WP_Query($args);
@@ -680,7 +707,7 @@
     <a href="/shop" class="btn ff-inter-700 mt-60 uppercase">Перейти в каталог</a>
   </section>
 
-  <section>  <!-- Block : Works  -->
+  <section id="our-works">  <!-- Block : Works  -->
     <h2 class="cercle bg-gray">Наши работы</h2>
 
     <div class="swiper-articles overflow-h mt-60">
@@ -741,7 +768,7 @@
 
   <? get_template_part( 'template-parts/work-stages-b', 'block' ); ?>
 
-  <section class="mt-60">  <!-- Block : Testimonials -->
+  <section id="reviews" class="mt-60">  <!-- Block : Testimonials -->
     <h2 class="cercle bg-gray">Отзывы</h2>
 
     <div class="swiper-reviews overflow-h mt-60">
@@ -767,9 +794,9 @@
             <div class="review">
                   <?php if (has_post_thumbnail()) : ?>
                           <div class="testimonial-thumbnail-home">
-                              <a href="<?php the_permalink(); ?>">
+                              <!-- <a href="<?php the_permalink(); ?>"> -->
                                   <?php the_post_thumbnail('large', ['class' => 'work-image-home']); ?>
-                              </a>
+                              <!-- </a> -->
                           </div><?php
                         else : ?>
                           <div class="flex f-jc-с p-92-24 bg-gray-3 txt-white ff-inter-800 fs-36 uppercase">Фото отсутствует</div>

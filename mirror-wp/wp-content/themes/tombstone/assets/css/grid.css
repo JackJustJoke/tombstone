@@ -60,7 +60,7 @@
 .gg-12 {grid-gap: 12px}
 .gg-24 {grid-gap: 24px}
 .gg-32 {grid-gap: 32px}
-.gg-40 {grid-gap: 40px}
+.gg-40 {grid-gap: clamp(8px, 2vh, 40px)}
 .gg-42 {grid-gap: 42px}
 .gg-56 {grid-gap: 56px}
 

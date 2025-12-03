@@ -31,7 +31,7 @@
 
 * { 
   /* font-family: "CN-T-SemiBold"; */
-    color: var(--color-base-black);
+  color: var(--color-base-black);
 }
 
 h1, .h1 { font-family: "Inter", sans-serif; font-weight: 600; }

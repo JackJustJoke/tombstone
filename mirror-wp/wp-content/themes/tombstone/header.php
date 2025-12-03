@@ -19,7 +19,9 @@
                 <a href="<?php echo home_url(); ?>">
                     <?php 
                 if ( has_custom_logo() ) {
-                    the_custom_logo();
+                    $logo = get_custom_logo();
+                    $logo = preg_replace( '/(width|height)="\d*"\s/', '', $logo );
+                    echo $logo;
                 } else {
                     echo '<h1>'. get_bloginfo('name') .'</h1>';
                 }

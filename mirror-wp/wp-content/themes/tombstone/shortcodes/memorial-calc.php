@@ -170,6 +170,7 @@ function memorial_calc_shortcode() {
           txtOrderArr.push(calcResult.innerText);
           txtOrderArr.join('\n');
           document.querySelector('#forminator-module-284 #textarea-1 textarea').value = txtOrderArr.join('\n');
+          console.log(document.querySelector('#forminator-module-284 #textarea-1 textarea').value);
         }
   
         orderTombstone.addEventListener('click', combineOrder);

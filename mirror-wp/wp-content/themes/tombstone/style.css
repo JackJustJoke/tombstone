@@ -40,11 +40,11 @@ main, footer {
 
 .main-menu .menu {
     list-style: none;
-    font-size: 18px;
+    font-size: 16px;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 40px;
+    gap: 20px;
 }
 
 .main-menu .menu li { display: inline-block }
@@ -250,10 +250,10 @@ h2.cercle.cercle-orange::before { background-color: var(--orange) }
 .btn-alt {
     display: block;
     width: 100%;
+    min-width: max-content;
     color: white;
     text-align: center;
     padding: 14px;
-    /* background-color: var(--orange); */
     border: 1px solid var(--orange);
 }
 
@@ -314,8 +314,8 @@ h2.cercle.cercle-orange::before { background-color: var(--orange) }
 
 .article, .review { background: white }
 
-.swiper-articles .article img, .swiper-reviews .review img 
-{ height: 220px; width: 100%; object-fit: cover }
+.swiper-articles .article img, 
+.swiper-reviews .review img { height: 220px; width: 100%; object-fit: cover }
 
 .article__desc, .review__desc { font-size: 18px; line-height: 115% }
 
@@ -658,7 +658,6 @@ form#forminator-module-284 .forminator-row:nth-child(4) { display: none }
 }
 
 .site-header .logo img {
-    height: clamp(70px, 12vw,120px);
     width: clamp(70px, 12vw,120px);
 }
 
@@ -767,6 +766,7 @@ form#forminator-module-284 .forminator-row:nth-child(4) { display: none }
 }
 
 .sidenav {
+  font-family: 'OSC-Light', sans-serif;
   position: fixed; 
   height: 100%;
   width: 250px; 
@@ -777,12 +777,13 @@ form#forminator-module-284 .forminator-row:nth-child(4) { display: none }
   overflow-x: hidden; 
   transition: 0.5s;
   padding-top: 60px;
+  
 }
 
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 34px;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -834,3 +835,13 @@ form#forminator-module-284 .forminator-row:nth-child(4) { display: none }
     object-fit: cover;
     width: 100%;
 }
+
+.logo { width: 68px }
+
+.social-icons {
+    display: grid;
+    grid-auto-flow: column;
+    justify-items: center;
+    grid-gap: 4px;
+}
+.social-icons > img { width: 48px }
