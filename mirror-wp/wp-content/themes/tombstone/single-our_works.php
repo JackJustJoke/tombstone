@@ -35,7 +35,7 @@ get_header(); ?>
                 <div class="work-content">
 
                     <h1 class="work-title"><?php the_title(); ?></h1>
-                    <div class="grid gtc-2 g-ai-c">
+                    <div class="grid gtc-2 ai-c">
                         <?php $price = get_post_meta(get_the_ID(), '_tombstone_work_price', true); ?>
                         <?php if ($price) : ?>
                             <div class="work-price-large ff-inter-800 fs-28">

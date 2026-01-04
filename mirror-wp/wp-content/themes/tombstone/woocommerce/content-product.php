@@ -44,7 +44,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 
 						// Если есть скидка
 						if ($min_sale_price && $min_sale_price < $min_regular_price) {
-							echo '<span class="price flex f-jc-sb f-ai-b">';
+							echo '<span class="price flex jc-sb ai-b">';
 							echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($min_sale_price) . '</div>';
 							echo '<del class="price-old">' . wc_price($min_regular_price) . '</del>';
 							echo '</span>';
@@ -56,12 +56,12 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 					} else {
 						// Для простых товаров
 						if ($product->is_on_sale()) {
-							echo '<span class="price flex f-jc-sb f-ai-b">';
+							echo '<span class="price flex jc-sb ai-b">';
 							echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_sale_price()) . '</div>';
 							echo '<del class="price-old">' . wc_price($product->get_regular_price()) . '</del> ';
 							echo '</span>';
 						} else {
-							echo '<span class="price flex f-jc-sb f-ai-b">';
+							echo '<span class="price flex jc-sb ai-b">';
 							echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_regular_price()) . '</div>';
 							echo '<del class="price-old"></del> ';
 							echo '</span>';

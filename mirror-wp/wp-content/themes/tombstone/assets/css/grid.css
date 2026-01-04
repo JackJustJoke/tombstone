@@ -7,31 +7,39 @@
 .gtc-3 { grid-template-columns: repeat(3, 1fr)}
 .gtc-2 { grid-template-columns: repeat(2, 1fr)}
 
-.g-pc-c { place-content: center}
+.pc-c { place-content: center}
 
-.g-ac-c  {align-content: center}
-.g-ac-s  {align-content: space-evenly}
-.g-ac-sa {align-content: space-around}
-.g-ac-sb {align-content: space-between}
-.g-ac-st {align-content: stretch}
+.va-m {vertical-align: middle}
 
-.g-jc-с  {justify-content: center}
-.g-jc-s  {justify-content: start}
-.g-jc-e  {justify-content: end}
-.g-jc-sb {justify-content: space-between}
-.g-jc-sa {justify-content: space-around}
-.g-jc-se {justify-content: space-evenly}
+.ac-c  {align-content: center}
+.ac-se {align-content: space-evenly}
+.ac-sa {align-content: space-around}
+.ac-sb {align-content: space-between}
+.ac-fs {align-content: flex-start}
+.ac-fe {align-content: flex-end}
+.ac-st {align-content: stretch}
 
-.g-ai-c  {align-items: center}
-.g-ai-s  {align-items: start}
-.g-ai-e  {align-items: end}
-.g-ai-st {align-items: stretch}
-.g-ai-b  {align-items: baseline}
+.jc-с  {justify-content: center}
+.jc-s  {justify-content: start}
+.jc-e  {justify-content: end}
+.jc-sb {justify-content: space-between}
+.jc-sa {justify-content: space-around}
+.jc-se {justify-content: space-evenly}
+.jc-fs {justify-content: flex-start}
+.jc-fe {justify-content: flex-end}
 
-.g-ji-c  {justify-items: center}
-.g-ji-s  {justify-items: start}
-.g-ji-e  {justify-items: end}
-.g-ji-st {justify-items: stretch}
+.ai-c  {align-items: center}
+.ai-s  {align-items: start}
+.ai-e  {align-items: end}
+.ai-st {align-items: stretch}
+.ai-b  {align-items: baseline}
+.ai-fs {align-items: flex-start}
+.ai-fe {align-items: flex-end}
+
+.ji-c  {justify-items: center}
+.ji-s  {justify-items: start}
+.ji-e  {justify-items: end}
+.ji-st {justify-items: stretch}
 
 .col-1-1 { grid-column: 1/2 }
 .col-1-2 { grid-column: 1/3 }

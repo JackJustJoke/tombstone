@@ -1,7 +1,7 @@
 /*   
 Theme Name: Tombstone
 Theme URI: https://jackjustjoke.com/theme/tombstone
-Description: Тема для надс
+Description: Тема для надгробий
 Author: JackJustJoke
 Author URI: https://jackjustjoke.com
 Version: 1.0
@@ -40,7 +40,7 @@ main, footer {
 
 .main-menu .menu {
     list-style: none;
-    font-size: 16px;
+    font-size: 18px;
     margin: 0;
     padding: 0;
     display: flex;
@@ -52,15 +52,44 @@ main, footer {
 .main-menu .menu li a {
     text-decoration: none;
     color: #333;
-    font-weight: 200;
+    font-weight: 300;
     text-transform: uppercase;
-    /* font-family: "CodeNext-Trial"; */
 }
 
-/* Swiper S */
-.swiper-button-next, .swiper-button-prev {
-    mix-blend-mode: plus-lighter;
+/* Swiper bullet */
+.swiper-horizontal>.swiper-pagination-bullets, 
+.swiper-pagination-bullets.swiper-pagination-horizontal, 
+.swiper-pagination-custom, .swiper-pagination-fraction {
+    width: max-content!important;
+    height: 40px;
+    margin-top: -40px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 9;
 }
+
+/* .swiper { height: 480px } */
+/* .swiper-wrapper { height: 480px } */
+.swiper .carousel { height: 480px }
+@media screen and (max-width:480px) {
+    .swiper .carousel { height: 630px; align-content: start; }
+}
+/* .swiper .carousel > div:first-child { height: 480px } */
+
+/* Swiper arrow S */
+.swiper-button-next, .swiper-button-prev { position: relative!important; /* mix-blend-mode: plus-lighter; */ }
+
+.swiper-button-prev { left: -60px!important; bottom: 240px!important }
+.swiper-button-next { left:  60px!important; bottom: 240px!important; margin-left: auto!important; }
+@media screen and (max-width:480px) {
+    .swiper-button-prev { left: 12px!important; bottom: 500px!important; mix-blend-mode: plus-lighter; }
+    .swiper-button-next { left:-12px!important; bottom: 500px!important; margin-left: auto!important; mix-blend-mode: plus-lighter; }
+}
+
+.gap-103 { gap: 103%; position: relative; bottom: 220px; }
+.gap-103 > div:first-child { transform: rotate(180deg); }
+
 /* Swiper E */
 
 .cloud {
@@ -90,15 +119,6 @@ main, footer {
      }
 }
 
-
-/* h2 > div {
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    border-radius: 100%;
-    background: #BCBCBC;
-    margin-right: -36px;
-} */
 h2.cercle::before, .h2.cercle::before {
     content: '';
     display: inline-block;
@@ -109,8 +129,6 @@ h2.cercle::before, .h2.cercle::before {
     background-color: #BCBCBC
 }
 h2.cercle.cercle-orange::before { background-color: var(--orange) }
-
-
 
 
 
@@ -184,20 +202,27 @@ h2.cercle.cercle-orange::before { background-color: var(--orange) }
   cursor: pointer;
 }
 
-.dots button.active {
-  background: orange;
-}
+.dots button.active { background: orange }
 
-.cards {
-    overflow: hidden;
-}
-.card {
+.cards { overflow: hidden }
+.card  { background-color: white }
+
+section:nth-child(5) #tab-1 .card {
     background-color: white;
-    /* border: 1px solid red; */
+    height: 480px;
+    /* outline: 1px solid red; */
+    
+    .product-card__title { font-size: 24px }
+    .price { padding-top: 30px }
+
+    .card__btn {
+        position: absolute!important;
+        padding: 14px;
+    }
 }
 .card img {
     width: 100%;
-    height: 350px;
+    height: 280px;
     object-fit: cover;
 }
 .card .card__btn {
@@ -214,7 +239,8 @@ h2.cercle.cercle-orange::before { background-color: var(--orange) }
 
 
 .btn-1, .forminator-button {
-    display: block;
+    display: inline-block;
+    vertical-align: middle;
     position: relative;
     text-align: center;
     font-family: "Inter", sans-serif; 
@@ -230,10 +256,10 @@ h2.cercle.cercle-orange::before { background-color: var(--orange) }
 .btn-bg-orange { background-color: var(--orange); }
 
 .button-with-arrow::before {
-  content: url("data:image/svg+xml;charset=utf-8,<svg xmlns='www.w3.org' width='16' height='16' viewBox='0 0 16 16'><path fill='%23ff0000' d='M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0z'/></svg>");
+  content: url("./assets/svg/arrow-btn.svg");
   position: absolute;
-  top: 0px;
-  right: 20px;
+  top: 0;
+  right: 0;
   width: 24px;
   height: 24px;
 }
@@ -245,6 +271,7 @@ h2.cercle.cercle-orange::before { background-color: var(--orange) }
     color: white;
     text-align: center;
     padding: 14px;
+    font-size: 20px;
 }
 
 .btn-alt {
@@ -259,6 +286,10 @@ h2.cercle.cercle-orange::before { background-color: var(--orange) }
 
 .btn:hover, .btn-1:hover, .btn-alt:hover, .card__btn:hover { opacity: .85 }
 
+.w-50-percent { width: 50% }
+@media screen and (max-width:480px) { 
+    .w-50-percent { width: 100% } 
+}
 
 .full-width-bg         { position: relative }
 .full-width-bg::before {
@@ -313,7 +344,7 @@ h2.cercle.cercle-orange::before { background-color: var(--orange) }
 /* Articles and reviews */
 
 .article, .review { background: white }
-
+.review .info {height: 150px;}
 .swiper-articles .article img, 
 .swiper-reviews .review img { height: 220px; width: 100%; object-fit: cover }
 
@@ -428,7 +459,7 @@ footer>div:first-child { border-bottom: solid 1px var(--orange) }
     font-family: "Gogh-ExtraBold";
     line-height: 115%;
 }
-.price { font-size: clamp(18px, 4vw, 24px)!important }
+.price { font-size: clamp(18px, 4vw, 28px)!important }
 #calcResult { font-size: clamp(32px, 4vw, 42px) }
 
 .woocommerce-Price-amount.amount {
@@ -501,7 +532,7 @@ tbody tr:nth-child(2) td.value::after {
 .wrap-img {
     display: block;
     width: 100%;
-    height: clamp(240px, 24vw, 330px);
+    height: 280px;
 }
 .wrap-img img {
     width: 100%;
@@ -624,19 +655,23 @@ form#forminator-module-284 .forminator-row:nth-child(4) { display: none }
 /*  Filter  */
 .wrap-input {
     background-color: white;
-    border: 1px solid #e6e6e6;
-    padding: 10px 30px 0px 22px;
+    border: 1px solid #bcbcbc;
+    padding: 0;
+    text-align-last: center;
     margin-bottom: 12px;
-    border-radius: 4px;
+}
+.wrap-input:nth-child(1) {
+    border-right: none;
 }
 .product-filter input {
     font-family: "Inter";
-    font-weight: 600;
+    font-weight: 500;
     width: 100%;
-    font-size: 18px;
+    font-size: 24px;
     line-height: 2;
     background-color: white;
 }
+div#spin { display: none }
 @media screen and (max-width:480px) {
     .product-filter .range-price {
         grid-template-columns: repeat(2, 1fr);
@@ -657,9 +692,12 @@ form#forminator-module-284 .forminator-row:nth-child(4) { display: none }
     padding: 0;
 }
 
-.site-header .logo img {
-    width: clamp(70px, 12vw,120px);
-}
+.site-header .logo img       { width: clamp(70px, 12vw,80px); transition: all 0.3s ease }
+.site-header:hover .logo img { width: 100px }
+.site-header       { background-color: #ffffff33; transition: background-color 0.3s ease; }
+.site-header:hover { background-color: #ffffffeb; }
+
+#menu-general-menu li:hover { opacity: 1; text-shadow: 0 0 black; transition: transform 0.3s ease }
 
 @media screen and (max-width:480px) {
     .site-header .main-menu {
@@ -677,7 +715,7 @@ form#forminator-module-284 .forminator-row:nth-child(4) { display: none }
 }
 
 
-.swiper-products-2 .info { padding: clamp(8px, 2vw, 12px) }
+.swiper-products-2 .info { padding: clamp(8px, 2vw, 20px) }
 
 
 .d-none { display: none; }
@@ -818,7 +856,7 @@ form#forminator-module-284 .forminator-row:nth-child(4) { display: none }
 
 
 .glass-effect {
-  background: rgba(255, 255, 255, 0.2); 
+  background-color: rgba(255, 255, 255, 0.2); 
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
@@ -845,3 +883,10 @@ form#forminator-module-284 .forminator-row:nth-child(4) { display: none }
     grid-gap: 4px;
 }
 .social-icons > img { width: 48px }
+
+.vw-30 { width:  30vw }
+.vw-70 { width:  70vw }
+
+.catalog-sidebar-and-products {
+    grid-template-columns: 24vw 1fr;
+}

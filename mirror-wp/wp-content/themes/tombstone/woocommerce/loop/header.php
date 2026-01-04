@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<header class="woocommerce-products-header flex f-ai-e f-jc-sb">
+<header class="woocommerce-products-header flex ai-e jc-sb mb-60">
 	<?php
 	/**
 	 * Hook: woocommerce_show_page_title.

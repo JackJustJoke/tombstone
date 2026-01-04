@@ -81,9 +81,9 @@ function memorial_calc_shortcode() {
           
           let sum = <?php echo $product->get_price() ?>;
 
-          if (stelaPrice > 0) { sum += stelaPrice * 2 }
-          if (tumbaPrice > 0) { sum += tumbaPrice * 2 }
-          if (tilePrice > 0 && area > 0) { sum += tilePrice * area * 2 }
+          if (stelaPrice > 0) { sum += stelaPrice }
+          if (tumbaPrice > 0) { sum += tumbaPrice }
+          if (tilePrice > 0 && area > 0) { sum += tilePrice * area }
           // sum += 6000 * 2; // Цветник 
           // sum += 4000 * 2; // Основание 
           

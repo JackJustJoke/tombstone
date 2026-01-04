@@ -1,6 +1,6 @@
 
 
-<section class="mt-60 ptb-60 bg-black full-width-bg">
+<section id="how-work" class="mt-60 ptb-60 bg-black full-width-bg">
     <h2 class="cercle cercle-orange txt-white">Порядок работы</h2>
     <div class="grid-even">
         <div class="grid gtc-4 gg-40">

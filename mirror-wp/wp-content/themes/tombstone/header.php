@@ -7,6 +7,7 @@
     <?php wp_head(); ?>
 
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/assets/css/swiper-bundle.min.css' ?>"/>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
 
     
     

@@ -32,39 +32,7 @@ do_action( 'woocommerce_before_main_content' );
 
 
 
-<?php
-// === Фильтр по цене ===
-function get_wc_price_range_fast() {
-    global $wpdb;
 
-    $sql = "
-        SELECT MIN(meta_value+0) as min_price, MAX(meta_value+0) as max_price
-        FROM {$wpdb->postmeta}
-        INNER JOIN {$wpdb->posts} ON {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id
-        WHERE meta_key = '_price'
-        AND post_type IN ('product', 'product_variation')
-        AND post_status = 'publish'
-    ";
-
-    return $wpdb->get_row($sql, ARRAY_A);
-}
-
-$range = get_wc_price_range_fast();
-
-?>
-<form method="get" class="product-filter ptb-20">
-	<div class="range-price grid gtc-2 gg-12">
-		<div class="wrap-input min-price">
-			<label for="min-price" class="fs-14 uppercase">Цена от</label>
-			<input id="min-price" type="number" name="min_price" placeholder="Цена от" value="<?php echo esc_attr($_GET['min_price'] ?? $range['min_price']); ?>" min="<? echo esc_attr($_GET['min_price'] ?? $range['min_price']); ?>">
-		</div>
-		<div class="wrap-input max-price">
-			<label for="max-price" class="fs-14 uppercase">Цена до</label>
-			<input id="max-price" type="number" name="max_price" placeholder="Цена до" value="<?php echo esc_attr($_GET['max_price'] ?? $range['max_price']); ?>" max="<? echo esc_attr($_GET['max_price'] ?? $range['max_price']); ?>">
-		</div>
-	</div>
-  	<button type="submit" class="btn-1">Фильтровать</button>
-</form>
 
 
 

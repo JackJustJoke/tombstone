@@ -27,7 +27,7 @@
           <div class="swiper-slide">
             <div class="grid gtc-2 carousel">
               <div class="col-1-1 p-60">
-                <h3 class="lh-115">Гравировка в подарок<span></span></h3>
+                <h3 class="lh-115">Гравировка в&nbsp;подарок<span></span></h3>
                 <p class="mt-100 ff-osc-l fs-24">Гравировка портрета, ФИО, дат, религиозной символики, эпитафий - в подарок при заказе от 120 000 рублей. От 150 000 бонусом гравировка на задней части стелы</p>
               </div>
               <div class="col-2-1" style="background-image: url('<?php echo get_stylesheet_directory_uri() . '/assets/images/carousel-img-2.jpg' ?>');"></div>
@@ -36,7 +36,7 @@
           <div class="swiper-slide">
             <div class="grid gtc-2 carousel">
               <div class="col-1-1 p-60">
-                <h3 class="lh-115">два клининга в подарок <span></span></h3>
+                <h3 class="lh-115">Два клининга в&nbsp;подарок <span></span></h3>
                 <p class="mt-100 ff-osc-l fs-24">При заказе памятника вы получите два бесплатных обслуживания захоронения в течение года. Мы аккуратно очистим памятник, цветник и прилегающую территорию от мусора, пыли и листвы</p>
               </div>
               <div class="col-2-1" style="background-image: url('<?php echo get_stylesheet_directory_uri() . '/assets/images/carousel-img-3.jpg' ?>');"></div>
@@ -45,7 +45,7 @@
           <div class="swiper-slide">
             <div class="grid gtc-2 carousel">
               <div class="col-1-1 p-60">
-                <h3 class="lh-115">детские памятники со скидкой 50% <span></span></h3>
+                <h3 class="lh-115">Детские памятники, скидка&nbsp;50%<span></span></h3>
                 <p class="mt-100 ff-osc-l fs-24">Мы понимаем всю боль утраты и хотим помочь семьям в этот сложный момент. На все детские памятники предоставляется скидка 50%. Наши мастера изготовят работу с особым вниманием и заботой к каждой детали</p>
               </div>
               <div class="col-2-1" style="background-image: url('<?php echo get_stylesheet_directory_uri() . '/assets/images/carousel-img-4.jpg' ?>');"></div>
@@ -54,7 +54,7 @@
           <div class="swiper-slide">
             <div class="grid gtc-2 carousel">
               <div class="col-1-1 p-60">
-                <h3 class="lh-115">Ретушь фото в подарок <span></span></h3>
+                <h3 class="lh-115">Ретушь фото в&nbsp;подарок <span></span></h3>
                 <p class="mt-100 ff-osc-l fs-24">При заказе гравировки портрета мы бесплатно выполним профессиональную ретушь фотографии. Исправим дефекты, улучшим качество изображения и подготовим его для переноса на камень</p>
               </div>
               <div class="col-2-1" style="background-image: url('<?php echo get_stylesheet_directory_uri() . '/assets/images/carousel-img-5.jpg' ?>');"></div>
@@ -72,7 +72,7 @@
           <div class="swiper-slide">
             <div class="grid gtc-2 carousel">
               <div class="col-1-1 p-60">
-                <h3 class="lh-115">мраморная крошка в подарок <span></span></h3>
+                <h3 class="lh-115">Мраморная крошка в<br>подарок <span></span></h3>
                 <p class="mt-100 ff-osc-l fs-24">В подарок засыпка цветника мраморной крошкой или песком на выбор. Также за дополнительную плату доступен выстил цветника искуственным газоном</p>
               </div>
               <div class="col-2-1" style="background-image: url('<?php echo get_stylesheet_directory_uri() . '/assets/images/carousel-img-7.jpg' ?>');"></div>
@@ -81,15 +81,20 @@
           <div class="swiper-slide">
             <div class="grid gtc-2 carousel">
               <div class="col-1-1 p-60">
-                <h3 class="lh-115">3 сертификата по 5000 рублей <span></span></h3>
+                <h3 class="lh-115">3 сертификата по&nbsp;5000 рублей <span></span></h3>
                 <p class="mt-100 ff-osc-l fs-24">Предоставляем клиентам 3 сертификата на сумму 5000 рублей каждый, которые можно использовать при будущих заказах. Подробности уточняйте у менеджера</p>
               </div>
               <div class="col-2-1" style="background-image: url('<?php echo get_stylesheet_directory_uri() . '/assets/images/carousel-img-8.jpg' ?>');"></div>
             </div>
           </div>
 
-          
         </div>
+      </div>
+      <div class="grid gtc-2">
+        <div class="swiper-pag"></div>
+        <div></div>
+      </div>
+      <div class="flex">
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
@@ -157,7 +162,7 @@
 
                                   // Если есть скидка
                                   if ($min_sale_price && $min_sale_price < $min_regular_price) {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($min_sale_price) . '</div>';
                                     echo '<del class="price-old">' . wc_price($min_regular_price) . '</del>';
                                     echo '</span>';
@@ -169,12 +174,12 @@
                                 } else {
                                   // Для простых товаров
                                   if ($product->is_on_sale()) {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_sale_price()) . '</div>';
                                     echo '<del class="price-old">' . wc_price($product->get_regular_price()) . '</del> ';
                                     echo '</span>';
                                   } else {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_regular_price()) . '</div>';
                                     echo '<del class="price-old"></del> ';
                                     echo '</span>';
@@ -201,6 +206,7 @@
 
             </div>
           </div>
+          
         </div>
         <div id="tab-2" class="tab-pane">
           <div class="swiper-products-1 overflow-h mt-40">
@@ -248,7 +254,7 @@
 
                                   // Если есть скидка
                                   if ($min_sale_price && $min_sale_price < $min_regular_price) {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($min_sale_price) . '</div>';
                                     echo '<del class="price-old">' . wc_price($min_regular_price) . '</del>';
                                     echo '</span>';
@@ -260,12 +266,12 @@
                                 } else {
                                   // Для простых товаров
                                   if ($product->is_on_sale()) {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_sale_price()) . '</div>';
                                     echo '<del class="price-old">' . wc_price($product->get_regular_price()) . '</del> ';
                                     echo '</span>';
                                   } else {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_regular_price()) . '</div>';
                                     echo '<del class="price-old"></del> ';
                                     echo '</span>';
@@ -345,7 +351,7 @@
 
                                   // Если есть скидка
                                   if ($min_sale_price && $min_sale_price < $min_regular_price) {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($min_sale_price) . '</div>';
                                     echo '<del class="price-old">' . wc_price($min_regular_price) . '</del>';
                                     echo '</span>';
@@ -357,12 +363,12 @@
                                 } else {
                                   // Для простых товаров
                                   if ($product->is_on_sale()) {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_sale_price()) . '</div>';
                                     echo '<del class="price-old">' . wc_price($product->get_regular_price()) . '</del> ';
                                     echo '</span>';
                                   } else {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_regular_price()) . '</div>';
                                     echo '<del class="price-old"></del> ';
                                     echo '</span>';
@@ -391,6 +397,20 @@
           </div>
         </div>
       </div>
+
+      <div class="flex pc-c gap-103">
+          <div class="swiper-btn-prev-1">
+            <svg class="swiper-navigation-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <path d="M39 20C39 9.50659 30.4934 1 20 1C9.50659 1 1 9.50659 1 20C1 30.4934 9.50659 39 20 39V40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0C31.0457 0 40 8.9543 40 20C40 31.0457 31.0457 40 20 40V39C30.4934 39 39 30.4934 39 20ZM16.7471 11.6445C16.9435 11.4505 17.26 11.452 17.4541 11.6484L25.7559 20.0527L17.3516 28.3535C17.1552 28.5475 16.8386 28.5457 16.6445 28.3496C16.4506 28.1533 16.4523 27.8367 16.6484 27.6426L24.3408 20.043L16.7422 12.3516C16.5482 12.1551 16.5506 11.8386 16.7471 11.6445Z" fill="#444444"></path>
+            </svg>
+          </div>
+          <div class="swiper-btn-next-1">
+            <svg class="swiper-navigation-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <path d="M39 20C39 9.50659 30.4934 1 20 1C9.50659 1 1 9.50659 1 20C1 30.4934 9.50659 39 20 39V40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0C31.0457 0 40 8.9543 40 20C40 31.0457 31.0457 40 20 40V39C30.4934 39 39 30.4934 39 20ZM16.7471 11.6445C16.9435 11.4505 17.26 11.452 17.4541 11.6484L25.7559 20.0527L17.3516 28.3535C17.1552 28.5475 16.8386 28.5457 16.6445 28.3496C16.4506 28.1533 16.4523 27.8367 16.6484 27.6426L24.3408 20.043L16.7422 12.3516C16.5482 12.1551 16.5506 11.8386 16.7471 11.6445Z" fill="#444444"></path>
+            </svg>
+          </div>
+        </div>
+
     </div>            
   </section>
 
@@ -472,7 +492,7 @@
 
                               // Если есть скидка
                               if ($min_sale_price && $min_sale_price < $min_regular_price) {
-                                echo '<span class="price flex f-jc-sb f-ai-b">';
+                                echo '<span class="price flex jc-sb ai-b">';
                                 echo '<div class="price-new pt-10"><span class="fs-14">от</span>&nbsp;' . wc_price($min_sale_price) . '</div>';
                                 echo '<del class="price-old">' . wc_price($min_regular_price) . '</del>';
                                 echo '</span>';
@@ -484,12 +504,12 @@
                             } else {
                               // Для простых товаров
                               if ($product->is_on_sale()) {
-                                echo '<span class="price flex f-jc-sb f-ai-b">';
+                                echo '<span class="price flex jc-sb ai-b">';
                                 echo '<div class="price-new pt-10"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_sale_price()) . '</div>';
                                 echo '<del class="price-old">' . wc_price($product->get_regular_price()) . '</del> ';
                                 echo '</span>';
                               } else {
-                                echo '<span class="price flex f-jc-sb f-ai-b">';
+                                echo '<span class="price flex jc-sb ai-b">';
                                 echo '<div class="price-new pt-10"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_regular_price()) . '</div>';
                                 echo '<del class="price-old"></del> ';
                                 echo '</span>';
@@ -557,7 +577,7 @@
 
                                   // Если есть скидка
                                   if ($min_sale_price && $min_sale_price < $min_regular_price) {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($min_sale_price) . '</div>';
                                     echo '<del class="price-old">' . wc_price($min_regular_price) . '</del>';
                                     echo '</span>';
@@ -569,12 +589,12 @@
                                 } else {
                                   // Для простых товаров
                                   if ($product->is_on_sale()) {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_sale_price()) . '</div>';
                                     echo '<del class="price-old">' . wc_price($product->get_regular_price()) . '</del> ';
                                     echo '</span>';
                                   } else {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_regular_price()) . '</div>';
                                     echo '<del class="price-old"></del> ';
                                     echo '</span>';
@@ -655,7 +675,7 @@
 
                                   // Если есть скидка
                                   if ($min_sale_price && $min_sale_price < $min_regular_price) {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($min_sale_price) . '</div>';
                                     echo '<del class="price-old">' . wc_price($min_regular_price) . '</del>';
                                     echo '</span>';
@@ -667,12 +687,12 @@
                                 } else {
                                   // Для простых товаров
                                   if ($product->is_on_sale()) {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_sale_price()) . '</div>';
                                     echo '<del class="price-old">' . wc_price($product->get_regular_price()) . '</del> ';
                                     echo '</span>';
                                   } else {
-                                    echo '<span class="price flex f-jc-sb f-ai-b">';
+                                    echo '<span class="price flex jc-sb ai-b">';
                                     echo '<div class="price-new"><span class="fs-14">от</span>&nbsp;' . wc_price($product->get_regular_price()) . '</div>';
                                     echo '<del class="price-old"></del> ';
                                     echo '</span>';
@@ -704,7 +724,7 @@
     </div>
     
     
-    <a href="/shop" class="btn ff-inter-700 mt-60 uppercase">Перейти в каталог</a>
+    <a href="/shop" class="btn-1 button-with-arrow ff-inter-700 mt-40 uppercase">Перейти в каталог</a>
   </section>
 
   <section id="our-works">  <!-- Block : Works  -->
@@ -715,7 +735,7 @@
         
         <?php $works_args = [
             'post_type'      => 'our_works',
-            'posts_per_page' => 6,
+            'posts_per_page' => 8,
             'orderby'        => 'date',
             'order'          => 'DESC'
           ];
@@ -730,9 +750,9 @@
                 <div class="article">
                   <?php if (has_post_thumbnail()) : ?>
                           <div class="work-thumbnail-home">
-                              <!-- <a href="<?php the_permalink(); ?>"> -->
+                              <a href="<?php the_permalink(); ?>">
                                   <?php the_post_thumbnail('hight', ['class' => 'work-image-home']); ?>
-                              <!-- </a> -->
+                              </a>
                           </div>
                       <?php endif; ?>
                   <div class="info p-20">
@@ -745,7 +765,7 @@
                     </div>
                     <div class="aritcle__price mt-30 ff-gogh-ex-bo fs-28 mt-40"><?php echo esc_html($price); ?>&nbsp;₽</div>
                   </div>
-                  <!-- <a class="btn ff-inter-700" href="<?php the_permalink(); ?>">Подробнее</a> -->
+                  <a class="btn ff-inter-700" href="<?php the_permalink(); ?>">Подробнее</a>
                 </div>
               </article>
             <?php
@@ -758,12 +778,26 @@
 
       </div>
     </div>
+    
+    <div class="flex pc-c gap-103">
+      <div class="swiper-articles-btn-prev">
+        <svg class="swiper-navigation-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path d="M39 20C39 9.50659 30.4934 1 20 1C9.50659 1 1 9.50659 1 20C1 30.4934 9.50659 39 20 39V40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0C31.0457 0 40 8.9543 40 20C40 31.0457 31.0457 40 20 40V39C30.4934 39 39 30.4934 39 20ZM16.7471 11.6445C16.9435 11.4505 17.26 11.452 17.4541 11.6484L25.7559 20.0527L17.3516 28.3535C17.1552 28.5475 16.8386 28.5457 16.6445 28.3496C16.4506 28.1533 16.4523 27.8367 16.6484 27.6426L24.3408 20.043L16.7422 12.3516C16.5482 12.1551 16.5506 11.8386 16.7471 11.6445Z" fill="#444444"></path>
+        </svg>
+      </div>
+      <div class="swiper-articles-btn-next">
+        <svg class="swiper-navigation-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path d="M39 20C39 9.50659 30.4934 1 20 1C9.50659 1 1 9.50659 1 20C1 30.4934 9.50659 39 20 39V40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0C31.0457 0 40 8.9543 40 20C40 31.0457 31.0457 40 20 40V39C30.4934 39 39 30.4934 39 20ZM16.7471 11.6445C16.9435 11.4505 17.26 11.452 17.4541 11.6484L25.7559 20.0527L17.3516 28.3535C17.1552 28.5475 16.8386 28.5457 16.6445 28.3496C16.4506 28.1533 16.4523 27.8367 16.6484 27.6426L24.3408 20.043L16.7422 12.3516C16.5482 12.1551 16.5506 11.8386 16.7471 11.6445Z" fill="#444444"></path>
+        </svg>
+      </div>
+    </div>
+
     <a href="<?php echo get_post_type_archive_link('our_works'); ?>" class="btn-1 mt-20 uppercase button-with-arrow ff-inter-700" >Смотреть все работы</a>
   </section>
 
-  <section class="mt-60">
-    <a href="#" class="btn-1 uppercase btn-bg-orange button-with-arrow ff-inter-700" >Конструктор</a>
-    <h3 class="pt-10 fs-44">Воспользуйтесь КОНСТРУКТОРОМ, чтобы рассчитать примерную стоимость мемориала</h3>
+  <section class="mt-60 lh-115">
+    <a href="#" class="btn-1 uppercase btn-bg-orange button-with-arrow ff-inter-700 w-50-percent" >Конструктор</a>
+    <span class="h3 va-m pl-40 fs-48 lh-115">Воспользуйтесь КОНСТРУКТОРОМ, чтобы рассчитать примерную стоимость мемориала</span>
   </section>
 
   <? get_template_part( 'template-parts/work-stages-b', 'block' ); ?>
@@ -793,16 +827,14 @@
           <review class="swiper-slide">
             <div class="review">
                   <?php if (has_post_thumbnail()) : ?>
-                          <div class="testimonial-thumbnail-home">
-                              <!-- <a href="<?php the_permalink(); ?>"> -->
-                                  <?php the_post_thumbnail('large', ['class' => 'work-image-home']); ?>
-                              <!-- </a> -->
-                          </div><?php
-                        else : ?>
-                          <div class="flex f-jc-с p-92-24 bg-gray-3 txt-white ff-inter-800 fs-36 uppercase">Фото отсутствует</div>
-                      <?php endif; ?>
+                    <div class="testimonial-thumbnail-home">
+                      <?php the_post_thumbnail('large', ['class' => 'work-image-home']); ?>
+                    </div><?php
+                  else : ?>
+                      <div class="flex jc-с p-92-24 bg-gray-3 txt-white ff-inter-800 fs-36 uppercase">Фото отсутствует</div>
+                  <?php endif; ?>
               <div class="info p-20">
-                <div class="flex f-jc-sb">
+                <div class="flex jc-sb">
                   <div class="review__title ff-inter-700 fs-24"><?php echo $author_name;  ?></div>
                   <div class="review__date ff-inter-700 fs-24 opacity-4"><?php echo wp_date('j F Y', strtotime($testimonial_date)); ?></div>
                 </div>
@@ -821,32 +853,30 @@
             </div>
           </review>
         
-        <?php
-        endwhile;
-          wp_reset_postdata();
-      else :
-          echo '<p>Отзывов пока нет.</p>';
-      endif;
-    ?>
-      
-        
-        <div class="swiper-slide">
-          <div class="review">
-            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/stock-tombstone.jpg' ?>" alt="">
-            <div class="info p-20">
-              <div class="flex f-jc-sb">
-                <div class="review__title ff-inter-700 fs-24">Ирина</div>
-                <div class="review__date ff-inter-700 fs-24 opacity-4">20 июня 2025</div>
-              </div>
-              <div class="review__desc ff-osc-l mt-20">Добрый день! Хочу оставить положительный отзыв о проделанной работе специалистов своего дела. Много объездили фирм по изготовлению памятников, но вернулись в мастерскую камня "Монумент". Заказывали здесь памятник папе...</div>
-            </div>
-            <a href="" class="btn ff-inter-700">Читать в 2Гис</a>
-          </div>
-        </div>
-
+          <?php
+            endwhile;
+              wp_reset_postdata();
+            else :
+              echo '<p>Отзывов пока нет.</p>';
+            endif;
+          ?>
+    
       </div>
     </div>
-      
+    
+    <div class="flex pc-c gap-103">
+      <div class="swiper-reviews-btn-prev">
+        <svg class="swiper-navigation-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path d="M39 20C39 9.50659 30.4934 1 20 1C9.50659 1 1 9.50659 1 20C1 30.4934 9.50659 39 20 39V40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0C31.0457 0 40 8.9543 40 20C40 31.0457 31.0457 40 20 40V39C30.4934 39 39 30.4934 39 20ZM16.7471 11.6445C16.9435 11.4505 17.26 11.452 17.4541 11.6484L25.7559 20.0527L17.3516 28.3535C17.1552 28.5475 16.8386 28.5457 16.6445 28.3496C16.4506 28.1533 16.4523 27.8367 16.6484 27.6426L24.3408 20.043L16.7422 12.3516C16.5482 12.1551 16.5506 11.8386 16.7471 11.6445Z" fill="#444444"></path>
+        </svg>
+      </div>
+      <div class="swiper-reviews-btn-next">
+        <svg class="swiper-navigation-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path d="M39 20C39 9.50659 30.4934 1 20 1C9.50659 1 1 9.50659 1 20C1 30.4934 9.50659 39 20 39V40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0C31.0457 0 40 8.9543 40 20C40 31.0457 31.0457 40 20 40V39C30.4934 39 39 30.4934 39 20ZM16.7471 11.6445C16.9435 11.4505 17.26 11.452 17.4541 11.6484L25.7559 20.0527L17.3516 28.3535C17.1552 28.5475 16.8386 28.5457 16.6445 28.3496C16.4506 28.1533 16.4523 27.8367 16.6484 27.6426L24.3408 20.043L16.7422 12.3516C16.5482 12.1551 16.5506 11.8386 16.7471 11.6445Z" fill="#444444"></path>
+        </svg>
+      </div>
+    </div>
+
   </section>
 
  <? get_template_part( 'template-parts/call-to-action-1', 'block' ) ?>
@@ -855,56 +885,90 @@
 <script src="<?php echo get_stylesheet_directory_uri() . '/assets/js/swiper-bundle.min.js' ?>"></script>
 <script>
   var swiper = new Swiper(".swiper", {
-    autoHeight: true,
     centeredSlides: true,
+    spaceBetween: 100,
     loop: true,
-    pagination: {
-    el: '.dots',
     clickable: true,
-    },
     navigation: {
-      nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
+      nextEl: ".swiper-button-next",
+    },
+    pagination: {
+      el: '.swiper-pag',
+      type: 'bullets',
     },
   });
 
   var swiperProducts1 = new Swiper(".swiper-products-1", {
-    slidesPerView: 5,
+    slidesPerView: 4,
     spaceBetween: 40,
-    freeMode: true,
+    loop: true,
+    clickable: true,
+    navigation: {
+      prevEl: ".swiper-btn-prev-1",
+      nextEl: ".swiper-btn-next-1",
+    },
     breakpoints: {
-      320: {slidesPerView: 2,spaceBetween: 5},
+      320: {slidesPerView: 2,spaceBetween: 5 },
       480: {slidesPerView: 3,spaceBetween: 10},
-      640: {slidesPerView: 5,spaceBetween: 40}
+      640: {slidesPerView: 4,spaceBetween: 40}
+    },
+    // Опционально: логирование для отладки
+    on: {
+        init: function() {
+            console.log('Swiper инициализирован, слайдов:', this.slides.length);
+        }
     }
   });
 
   var swiperProducts2 = new Swiper(".swiper-products-2", {
     slidesPerView: 4, spaceBetween: 40,
+    loop: true,
     grid: { rows: 2 },
-    pagination: {el: ".swiper-pagination", clickable: true},
+    pagination: {
+      el: ".swiper-pagination", 
+      clickable: true
+    },
     breakpoints: {
-      320: {slidesPerView: 2,spaceBetween: 5},
+      320: {slidesPerView: 2,spaceBetween: 5 },
       480: {slidesPerView: 3,spaceBetween: 10},
-      640: {slidesPerView: 5,spaceBetween: 40}
+      640: {slidesPerView: 4,spaceBetween: 40}
     }
   });
 
   var swiperArticles = new Swiper(".swiper-articles", {
-    slidesPerView: 2, spaceBetween: 40, freeMode: true,
+    slidesPerView: 2, spaceBetween: 40,
+    loop: true,
+    navigation: {
+      prevEl: ".swiper-articles-btn-prev",
+      nextEl: ".swiper-articles-btn-next",
+    },
     breakpoints: {
-      320: {slidesPerView: 1,spaceBetween: 5},
+      320: {slidesPerView: 1,spaceBetween: 5 },
       480: {slidesPerView: 2,spaceBetween: 10},
       640: {slidesPerView: 2,spaceBetween: 40}
     }
   });
 
+  
   var swiperArticles = new Swiper(".swiper-reviews", {
-    slidesPerView: 2, spaceBetween: 40, freeMode: true,
+    slidesPerView: 2, spaceBetween: 40,
+    clickable: true,
+    loop: true,
+    navigation: {
+      prevEl: ".swiper-reviews-btn-prev",
+      nextEl: ".swiper-reviews-btn-next",
+    },
     breakpoints: {
       320: {slidesPerView: 1,spaceBetween: 5},
       480: {slidesPerView: 2,spaceBetween: 10},
       640: {slidesPerView: 2,spaceBetween: 40}
+    },
+    // Опционально: логирование для отладки
+    on: {
+        init: function() {
+            console.log('Swiper инициализирован, слайдов:', this.slides.length);
+        }
     }
   });
 

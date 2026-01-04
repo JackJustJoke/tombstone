@@ -47,7 +47,7 @@
 
 .pl-10 {padding-left: 10px}
 .pl-20 {padding-left: 20px}
-.pl-40 {padding-left: 40px}
+.pl-40 {padding-left: clamp(0px, 2vw ,40px)}
 .pl-60 {padding-left: 60px}
 .pl-70 {padding-left: 70px}
 .pl-80 {padding-left: 80px}
