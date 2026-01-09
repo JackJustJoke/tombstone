@@ -43,19 +43,60 @@ $range = get_wc_price_range_fast();
 
 ?>
 
+<?php
+global $wpdb;
+$max_price = $wpdb->get_var("
+	SELECT MAX(CAST(meta_value AS UNSIGNED))
+	FROM {$wpdb->postmeta}
+	WHERE meta_key = '_price'
+");
+$min_price = $wpdb->get_var("
+	SELECT MIN(CAST(meta_value AS UNSIGNED))
+	FROM {$wpdb->postmeta}
+	WHERE meta_key = '_price'
+");
+?>
+
 <div class="sidebar-catalog">
 	<form method="get" class="product-filter ptb-20">
 		<p class="product-card__title mb-40">Цена, ₽</p>
-		<div class="range-price grid gtc-2">
+		<div class="range-price grid gtc-2 mb-20">
 			<div class="wrap-input min-price">
 				<label for="min-price" class="fs-14 uppercase d-none">Цена от</label>
 				<input id="min-price" type="number" name="min_price" placeholder="Цена от" value="<?php echo esc_attr($_GET['min_price'] ?? $range['min_price']); ?>" min="<? echo esc_attr($_GET['min_price'] ?? $range['min_price']); ?>">
 			</div>
 			<div class="wrap-input max-price">
 				<label for="max-price" class="fs-14 uppercase d-none">Цена до</label>
-				<input id="max-price" type="number" name="max_price" placeholder="Цена до" value="<?php echo esc_attr($_GET['max_price'] ?? $range['max_price']); ?>" max="<? echo esc_attr($_GET['max_price'] ?? $range['max_price']); ?>">
+				<input id="max-price" type="number" name="max_price" placeholder="Цена до" value="<? echo $max_price ?>" max="<? echo $max_price ?>">
 			</div>
 		</div>
+		<div class="range-slider-container mb-40">
+			<input id="rangeMinPrice" class="range-slider" type="range" min="0" max="<? echo $max_price ?>" step="1" value="0">
+			<input id="rangeMaxPrice" class="range-slider" type="range" min="0" max="<? echo $max_price ?>" step="1" value="<? echo $max_price ?>">
+		<div id="sliderTrack" class="slider-track"></div>
+</div>
+
+		<script>
+			let updateSlider = (fillColor = '#ff6200', emptyColor = '#bcbcbc') => {
+				let [min, max] = [parseInt(rangeMinPrice.value), parseInt(rangeMaxPrice.value)]
+				if (min >= max) rangeMinPrice.value = max - 1;  
+				if (max <= min) rangeMaxPrice.value = min + 1;
+				let percentForMin = parseInt((rangeMinPrice.value / rangeMinPrice.max) * 100);
+				let percentForMax = parseInt((rangeMaxPrice.value / rangeMaxPrice.max) * 100);
+				sliderTrack.style.background = `linear-gradient(to right, 
+					${emptyColor} ${percentForMin}%, 
+					${fillColor}  ${percentForMin}%, 
+					${fillColor}  ${percentForMax}%, 
+					${emptyColor} ${percentForMax}%)`;
+				document.querySelector('#min-price').value = min;
+				document.querySelector('#max-price').value = max;
+				
+			}
+			rangeMinPrice.addEventListener('input', () => updateSlider());
+			rangeMaxPrice.addEventListener('input', () => updateSlider());
+			updateSlider();
+		</script>
+
 		<button type="submit" class="btn-1">Применить фильтры</button>
 	</form>
 </div>
